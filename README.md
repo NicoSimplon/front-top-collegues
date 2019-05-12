@@ -1,7 +1,9 @@
-# Application Top Collègues
+# Application Top Collï¿½gues
 
-Interface de l'application Top Collègues (réalisée avec Angular). Cette application
-est conçue pour communiquer avec l'application Collègues (collegues-front et collegues-api).
+[![Build Status](https://travis-ci.org/NicoSimplon/front-top-collegues.svg?branch=master)](https://travis-ci.org/NicoSimplon/front-top-collegues)
+
+Interface de l'application Top Collï¿½gues (rï¿½alisï¿½e avec Angular). Cette application
+est conï¿½ue pour communiquer avec l'application Collï¿½gues (collegues-front et collegues-api).
 
 
 
