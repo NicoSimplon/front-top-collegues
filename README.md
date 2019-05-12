@@ -1,10 +1,11 @@
-# Application Top Coll�gues
+# Application Top Collègues
 
 [![Build Status](https://travis-ci.org/NicoSimplon/front-top-collegues.svg?branch=master)](https://travis-ci.org/NicoSimplon/front-top-collegues)
 
-Interface de l'application Top Coll�gues (r�alis�e avec Angular). Cette application
-est con�ue pour communiquer avec l'application Coll�gues (collegues-front et collegues-api).
+Lien vers l'interface: [Lien](https://nicosimplon.github.io/front-top-collegues/)
 
+Interface de l'application Top Collègues (réalisée avec Angular). Cette application
+est conçue pour communiquer avec l'application Collègues (collegues-front et collegues-api).
 
 
 # This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
