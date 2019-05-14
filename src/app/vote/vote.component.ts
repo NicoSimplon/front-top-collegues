@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../service/data.service';
 import { Participant } from '../models/Participant';
 import { Vote } from '../models/Vote';
+import { UserConnecte } from '../models/UserConnecte';
+import { AuthService } from '../service/auth.service';
 
 @Component({
 	selector: 'app-vote',
@@ -13,8 +15,9 @@ export class VoteComponent implements OnInit {
 	errorMessage: string;
 	successMessage: string;
 	vote: Vote;
+	user: UserConnecte;
 
-	constructor(private _service: DataService) { }
+	constructor(private _service: DataService, private _serviceAuth: AuthService) { }
 
 	votePositif(email: string): void {
 		this._service.voter(
@@ -29,7 +32,11 @@ export class VoteComponent implements OnInit {
 				);
 			},
 			error => {
-				this.errorMessage = 'Une erreur est survenue, veuillez contacter un administrateur';
+				if(error.status == 404) {
+					this.errorMessage = `Une erreur est survenue : veuillez vous reconnecter et esayer à nouveau`;
+				} else if (error.status == 400) {
+					this.errorMessage = `Une erreur est survenue : vous ne pouvez pas voter pour vous-même`;
+				}
 				setInterval(
 					() => {
 						this.errorMessage = undefined;
@@ -52,7 +59,11 @@ export class VoteComponent implements OnInit {
 				);
 			},
 			error => {
-				this.errorMessage = 'Une erreur est survenue, veuillez contacter un administrateur';
+				if(error.status == 404) {
+					this.errorMessage = `Une erreur est survenue : veuillez vous reconnecter et esayer à nouveau`;
+				} else if (error.status == 400) {
+					this.errorMessage = `Une erreur est survenue : vous ne pouvez pas voter pour vous-même`;
+				}
 				setInterval(
 					() => {
 						this.errorMessage = undefined;
@@ -74,7 +85,6 @@ export class VoteComponent implements OnInit {
 				);
 			}
 		);
-
 	}
 
 }
