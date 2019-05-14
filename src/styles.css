@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light');
+
+h1, h2, h3 {
+    font-family: 'Shadows Into Light', cursive;
+}
+
+.thumbSize {
+	font-size: 48px;
+}
+
+.thumbSize:hover {
+	opacity: 0.7;
+}

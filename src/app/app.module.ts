@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
@@ -7,6 +10,10 @@ import { ClassementComponent } from './classement/classement.component';
 import { VoteComponent } from './vote/vote.component';
 import { MenuComponent } from './menu/menu.component';
 import { ParticipantComponent } from './participant/participant.component';
+import { ROUTES } from './app.routes';
+import { DataService } from './service/data.service';
+import { ScorePipe } from './pipes/score.pipe';
+
 
 @NgModule({
   declarations: [
@@ -15,12 +22,16 @@ import { ParticipantComponent } from './participant/participant.component';
     ClassementComponent,
     VoteComponent,
     MenuComponent,
-    ParticipantComponent
+    ParticipantComponent,
+    ScorePipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

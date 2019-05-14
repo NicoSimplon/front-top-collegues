@@ -1,3 +1,5 @@
-<p>
-  menu works!
-</p>
+<nav class="btn-group btn-group-toggle">
+    <button class="btn btn-secondary" routerLink="/votes">Votes</button>
+    <button class="btn btn-secondary" routerLink="/classement">Classement</button>
+    <button class="btn btn-secondary" (click)="deconnexion()" *ngIf="connecte">Déconnexion</button>
+</nav>
