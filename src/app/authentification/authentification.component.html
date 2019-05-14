@@ -4,7 +4,7 @@
     <div class="alert alert-danger text-center" *ngIf="messageErreur">
         <p><strong>{{messageErreur}}</strong></p>
     </div>
-    <form #form="ngForm" (submit)="connexion()" (keydown.enter)="connexion()">
+    <form #form="ngForm" (ngSubmit)="connexion()" >
         <div class="form-group">
             <label for="email">Email : </label>
             <input type="email" [(ngModel)]="auth.email" #email="ngModel" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Renseigner votre email" name="email" required pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}">

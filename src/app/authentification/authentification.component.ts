@@ -15,7 +15,7 @@ export class AuthentificationComponent implements OnInit {
 
 	constructor(private _service: AuthService, private router: Router) { }
 
-	connexion () {
+	connexion (): boolean {
 		this._service.connexion(this.auth).subscribe(
 			ok => this.router.navigate(["/votes"]),
 			error => {
@@ -27,6 +27,7 @@ export class AuthentificationComponent implements OnInit {
 				);
 			}
 		);
+		return false;
 	}
 
   	ngOnInit() {
