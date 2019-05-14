@@ -17,10 +17,7 @@ export class AuthentificationComponent implements OnInit {
 
 	connexion () {
 		this._service.connexion(this.auth).subscribe(
-			ok => {
-				console.log("Connecté");
-				this.router.navigate(["/votes"]);
-			},
+			ok => this.router.navigate(["/votes"]),
 			error => {
 				this.messageErreur = "L'email ou le mot de passe sont invalides";
 				setInterval(

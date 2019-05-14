@@ -17,7 +17,7 @@ export class VoteComponent implements OnInit {
 	vote: Vote;
 	user: UserConnecte;
 
-	constructor(private _service: DataService, private _serviceAuth: AuthService) { }
+	constructor(private _service: DataService) { }
 
 	votePositif(email: string): void {
 		this._service.voter(
@@ -35,7 +35,7 @@ export class VoteComponent implements OnInit {
 				if(error.status == 404) {
 					this.errorMessage = `Une erreur est survenue : veuillez vous reconnecter et esayer à nouveau`;
 				} else if (error.status == 400) {
-					this.errorMessage = `Une erreur est survenue : vous ne pouvez pas voter pour vous-même`;
+					this.errorMessage = `Une erreur est survenue : ${error.error}`;
 				}
 				setInterval(
 					() => {
@@ -62,7 +62,8 @@ export class VoteComponent implements OnInit {
 				if(error.status == 404) {
 					this.errorMessage = `Une erreur est survenue : veuillez vous reconnecter et esayer à nouveau`;
 				} else if (error.status == 400) {
-					this.errorMessage = `Une erreur est survenue : vous ne pouvez pas voter pour vous-même`;
+					console.log(error)
+					this.errorMessage = `Une erreur est survenue : ${error.error}`;
 				}
 				setInterval(
 					() => {
@@ -77,7 +78,7 @@ export class VoteComponent implements OnInit {
 		this._service.recupParticipants().subscribe(
 			participants => this.participants = participants,
 			error => {
-				this.errorMessage = error.message;
+				this.errorMessage = error.error;
 				setInterval(
 					() => {
 						this.errorMessage = undefined;
