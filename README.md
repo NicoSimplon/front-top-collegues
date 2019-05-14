@@ -7,6 +7,11 @@ Lien vers l'interface: [Lien](https://nicosimplon.github.io/front-top-collegues/
 Interface de l'application Top Collègues (réalisée avec Angular). Cette application
 est conçue pour communiquer avec l'application Collègues (collegues-front et collegues-api).
 
+	Identifiants de connexion de test:
+
+		email: marty@societe.com
+		mot de passe: pass1
+
 
 # This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
 
