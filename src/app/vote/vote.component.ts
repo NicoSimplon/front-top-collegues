@@ -75,9 +75,6 @@ export class VoteComponent implements OnInit {
 			}
 		);
 
-		this._service.prendreAbonnement().subscribe(
-			participants => this.participants = participants
-		);
 	}
 
 }

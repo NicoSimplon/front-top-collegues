@@ -13,30 +13,14 @@ export class DataService {
 
 	URL_BACKEND = `${environment.url}/top-collegues`;
 
-	subject = new Subject<Participant[]>();
-
 	constructor(private _http: HttpClient) { }
 
-	prendreAbonnement(): Observable<Participant[]> {
-		return this.subject.asObservable();
-	}
-
 	recupParticipants(): Observable<Participant[]> {
-		return this._http.get<Participant[]>(`${this.URL_BACKEND}/classement`, { withCredentials: true })
-			.pipe(
-				tap(
-					tabParticipant => this.subject.next(tabParticipant.sort())
-				)
-			);
+		return this._http.get<Participant[]>(`${this.URL_BACKEND}/classement`, { withCredentials: true });
 	}
 
 	voter(vote: Vote): Observable<Participant[]> {
-		return this._http.post<Participant[]>(`${this.URL_BACKEND}/vote`, vote, { withCredentials: true })
-			.pipe(
-				tap(
-					tabParticipant => this.subject.next(tabParticipant)
-				)
-			);
+		return this._http.post<Participant[]>(`${this.URL_BACKEND}/vote`, vote, { withCredentials: true });
 	}
 
 }

@@ -9,7 +9,6 @@ import { AuthentificationComponent } from './authentification/authentification.c
 import { ClassementComponent } from './classement/classement.component';
 import { VoteComponent } from './vote/vote.component';
 import { MenuComponent } from './menu/menu.component';
-import { ParticipantComponent } from './participant/participant.component';
 import { ROUTES } from './app.routes';
 import { DataService } from './service/data.service';
 import { ScorePipe } from './pipes/score.pipe';
@@ -22,7 +21,6 @@ import { ScorePipe } from './pipes/score.pipe';
     ClassementComponent,
     VoteComponent,
     MenuComponent,
-    ParticipantComponent,
     ScorePipe
   ],
   imports: [

@@ -16,7 +16,17 @@ export class ClassementComponent implements OnInit {
 	ngOnInit() {
 		this._service.recupParticipants().subscribe(
 			participants => {
-				this.participants = participants;
+				this.participants = participants.sort(
+					(a, b) => {
+						if(a.score > b.score) {
+							return -1;
+						} else if(a.score === b.score){
+							return 0;
+						} else {
+							return 1;
+						}
+					}
+				);
 			},
 			erreur => {
 
@@ -30,9 +40,6 @@ export class ClassementComponent implements OnInit {
 			}
 		);
 
-		this._service.prendreAbonnement().subscribe(
-			participants => this.participants = participants
-		);
 	}
 
 }
